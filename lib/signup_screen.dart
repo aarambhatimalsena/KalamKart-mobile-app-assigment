@@ -51,16 +51,19 @@ class _SignupScreenState extends State<SignupScreen> {
             behavior: SnackBarBehavior.floating,
             shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
             margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-            duration: const Duration(seconds: 2),
+            duration: const Duration(seconds: 1),
           ),
         );
 
+        // ✅ Navigate to dashboard after 2 seconds
         Future.delayed(const Duration(seconds: 2), () {
           resetValidation();
           nameController.clear();
           emailController.clear();
           passwordController.clear();
           confirmPasswordController.clear();
+
+          Navigator.pushReplacementNamed(context, '/dashboard');
         });
       }
     });
@@ -121,7 +124,6 @@ class _SignupScreenState extends State<SignupScreen> {
                       ),
                       const SizedBox(height: 24),
 
-                      // Name
                       _buildInputField(
                         controller: nameController,
                         hintText: "Name",
@@ -130,7 +132,6 @@ class _SignupScreenState extends State<SignupScreen> {
                       ),
                       const SizedBox(height: 16),
 
-                      // Email
                       _buildInputField(
                         controller: emailController,
                         hintText: "Email",
@@ -139,7 +140,6 @@ class _SignupScreenState extends State<SignupScreen> {
                       ),
                       const SizedBox(height: 16),
 
-                      // Password
                       _buildInputField(
                         controller: passwordController,
                         hintText: "Password",
@@ -155,7 +155,6 @@ class _SignupScreenState extends State<SignupScreen> {
                       ),
                       const SizedBox(height: 16),
 
-                      // Confirm Password
                       _buildInputField(
                         controller: confirmPasswordController,
                         hintText: "Confirm Password",
@@ -171,7 +170,6 @@ class _SignupScreenState extends State<SignupScreen> {
                       ),
                       const SizedBox(height: 24),
 
-                      // Signup Button
                       SizedBox(
                         width: double.infinity,
                         height: 52,
@@ -195,7 +193,6 @@ class _SignupScreenState extends State<SignupScreen> {
                       ),
                       const SizedBox(height: 20),
 
-                      // Google Signup
                       OutlinedButton.icon(
                         onPressed: () {
                           resetValidation();
@@ -214,7 +211,6 @@ class _SignupScreenState extends State<SignupScreen> {
                       ),
                       const SizedBox(height: 24),
 
-                      // Already have an account
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
@@ -266,7 +262,7 @@ class _SignupScreenState extends State<SignupScreen> {
         errorText: errorText,
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(12),
-          borderSide: BorderSide.none, // ✅ No black border
+          borderSide: BorderSide.none,
         ),
         filled: true,
         fillColor: Colors.grey[100],
