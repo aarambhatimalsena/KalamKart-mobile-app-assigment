@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'splash_screen.dart';
-import 'login_screen.dart';
+import 'view/splash_screen.dart';
+import 'view/login_screen.dart';
 
 class KalamKartApp extends StatelessWidget {
   const KalamKartApp({super.key});
@@ -25,7 +25,7 @@ class KalamKartApp extends StatelessWidget {
       initialRoute: '/',
       routes: {
         '/': (context) => const SplashScreen(),
-        '/login': (context) => const LoginScreen(),
+        '/login': (context) => const Logi(),
       },
     );
   }
