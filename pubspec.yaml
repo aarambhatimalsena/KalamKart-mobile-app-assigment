@@ -62,6 +62,7 @@ flutter:
 
   assets:
     - assets/images/KalamKart_logo.png
+    - assets/images/google_logo.png
     
 
   #   - images/a_dot_ham.jpeg
