@@ -1,0 +1,40 @@
+import 'package:flutter/material.dart';
+import 'login_screen.dart'; 
+import 'signup_screen.dart'; 
+import 'splash_screen.dart'; 
+import 'dashboard_screen.dart'; 
+
+void main() {
+  runApp(KalamKartApp());
+}
+
+class KalamKartApp extends StatelessWidget {
+  const KalamKartApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'KalamKart',
+      debugShowCheckedModeBanner: false,
+      theme: ThemeData(
+        fontFamily: 'Roboto',
+        scaffoldBackgroundColor: const Color(0xFF0A1B2E),
+        elevatedButtonTheme: ElevatedButtonThemeData(
+          style: ElevatedButton.styleFrom(
+            backgroundColor: const Color(0xFF0A1B2E),
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(12),
+            ),
+          ),
+        ),
+      ),
+      initialRoute: '/', // Splash screen is the initial route
+      routes: {
+        '/': (context) => const SplashScreen(),
+        '/login': (context) => const LoginScreen(),
+        '/signup': (context) => const SignupScreen(),
+        '/dashboard': (context) => const DashboardScreen(), // Navigate to dashboard after login/signup
+      },
+    );
+  }
+}
