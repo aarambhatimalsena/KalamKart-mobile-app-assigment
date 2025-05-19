@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'login_screen.dart'; // used for navigation
 
+// Splash screen with navigation to login after 3 seconds
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
 
@@ -11,9 +13,12 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     super.initState();
-    // Temporarily remove navigation
+    // Delay and navigate to login
     Future.delayed(const Duration(seconds: 3), () {
-      print("Splash finished — login navigation disabled.");
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(builder: (context) => const LoginScreen()),
+      );
     });
   }
 
@@ -25,9 +30,10 @@ class _SplashScreenState extends State<SplashScreen> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            // App logo
             Image.asset(
               'assets/images/KalamKart_logo.png',
-              height: 100,
+              height: 110, // slight height tweak
               errorBuilder: (context, error, stackTrace) =>
                   const Icon(Icons.error, color: Colors.red),
             ),
@@ -41,9 +47,7 @@ class _SplashScreenState extends State<SplashScreen> {
               ),
             ),
             const SizedBox(height: 30),
-            const CircularProgressIndicator(
-              color: Colors.white,
-            ),
+            const CircularProgressIndicator(color: Colors.white),
           ],
         ),
       ),
