@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'login_screen.dart';
+import 'signup_screen.dart'; 
 
 class KalamKartApp extends StatelessWidget {
   const KalamKartApp({super.key});
@@ -21,7 +21,7 @@ class KalamKartApp extends StatelessWidget {
           ),
         ),
       ),
-      home: const LoginScreen(),
+      home: const SignupScreen(), 
     );
   }
 }
