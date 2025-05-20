@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:kalamkart_mobileapp/view/login_screen.dart';
 
 class SignupScreen extends StatefulWidget {
   const SignupScreen({super.key});
@@ -37,33 +38,51 @@ class _SignupScreenState extends State<SignupScreen> {
     String password = passwordController.text;
     String confirmPassword = confirmPasswordController.text;
 
+    bool hasError = false;
+
     setState(() {
-      if (name.isEmpty) nameError = "Name is required";
-      if (email.isEmpty || !email.contains('@')) emailError = "Valid email required";
-      if (password.length < 6) passwordError = "Password must be at least 6 digits";
-      if (confirmPassword != password) confirmPasswordError = "Passwords do not match";
-
-      if (nameError == null && emailError == null && passwordError == null && confirmPasswordError == null) {
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(
-            content: const Text("Signup successful"),
-            backgroundColor: Colors.green,
-            behavior: SnackBarBehavior.floating,
-            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
-            margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-            duration: const Duration(seconds: 2),
-          ),
-        );
-
-        Future.delayed(const Duration(seconds: 2), () {
-          resetValidation();
-          nameController.clear();
-          emailController.clear();
-          passwordController.clear();
-          confirmPasswordController.clear();
-        });
+      if (name.isEmpty) {
+        nameError = "Name is required";
+        hasError = true;
+      }
+      if (email.isEmpty || !email.contains('@')) {
+        emailError = "Valid email required";
+        hasError = true;
+      }
+      if (password.length < 6) {
+        passwordError = "Password must be at least 6 digits";
+        hasError = true;
+      }
+      if (confirmPassword != password) {
+        confirmPasswordError = "Passwords do not match";
+        hasError = true;
       }
     });
+
+    if (!hasError) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: const Text("Signup successful"),
+          backgroundColor: Colors.green,
+          behavior: SnackBarBehavior.floating,
+          shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+          margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
+          duration: const Duration(seconds: 2),
+        ),
+      );
+
+      resetValidation();
+      nameController.clear();
+      emailController.clear();
+      passwordController.clear();
+      confirmPasswordController.clear();
+
+      // Navigate immediately
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(builder: (context) => const LoginScreen()),
+      );
+    }
   }
 
   @override
@@ -120,8 +139,6 @@ class _SignupScreenState extends State<SignupScreen> {
                         ),
                       ),
                       const SizedBox(height: 24),
-
-                      // Name
                       _buildInputField(
                         controller: nameController,
                         hintText: "Name",
@@ -129,8 +146,6 @@ class _SignupScreenState extends State<SignupScreen> {
                         errorText: nameError,
                       ),
                       const SizedBox(height: 16),
-
-                      // Email
                       _buildInputField(
                         controller: emailController,
                         hintText: "Email",
@@ -138,8 +153,6 @@ class _SignupScreenState extends State<SignupScreen> {
                         errorText: emailError,
                       ),
                       const SizedBox(height: 16),
-
-                      // Password
                       _buildInputField(
                         controller: passwordController,
                         hintText: "Password",
@@ -154,8 +167,6 @@ class _SignupScreenState extends State<SignupScreen> {
                         },
                       ),
                       const SizedBox(height: 16),
-
-                      // Confirm Password
                       _buildInputField(
                         controller: confirmPasswordController,
                         hintText: "Confirm Password",
@@ -194,6 +205,10 @@ class _SignupScreenState extends State<SignupScreen> {
                       const SizedBox(height: 20),
                       OutlinedButton.icon(
                         onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => const LoginScreen()),
+                          );
                           resetValidation();
                         },
                         icon: Image.asset(
@@ -260,7 +275,7 @@ class _SignupScreenState extends State<SignupScreen> {
         errorText: errorText,
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(12),
-          borderSide: BorderSide.none, 
+          borderSide: BorderSide.none,
         ),
         filled: true,
         fillColor: Colors.grey[100],
@@ -268,5 +283,3 @@ class _SignupScreenState extends State<SignupScreen> {
     );
   }
 }
-
-
