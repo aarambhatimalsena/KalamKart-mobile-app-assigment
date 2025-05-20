@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'login_screen.dart'; 
-import 'signup_screen.dart'; 
-import 'splash_screen.dart'; 
-import 'dashboard_screen.dart'; 
+import 'view/login_screen.dart'; 
+import 'view/signup_screen.dart'; 
+import 'view/splash_screen.dart'; 
+import 'view/dashboard_screen.dart'; 
 
 void main() {
   runApp(KalamKartApp());
