@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'login_screen.dart'; // Or change to 'home_screen.dart' if going to home directly
+import 'login_screen.dart'; // Change to 'home_screen.dart' if needed
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -12,13 +12,18 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     super.initState();
-    // Simulate loading
-    Future.delayed(const Duration(seconds: 3), () {
-      Navigator.pushReplacement(
-        context,
-        MaterialPageRoute(builder: (context) => LoginScreen()),
-      );
-    });
+    _navigateToLogin();
+  }
+
+  Future<void> _navigateToLogin() async {
+    await Future.delayed(const Duration(seconds: 3));
+
+    if (!mounted) return; // ✅ Ensures context is still valid
+
+    Navigator.pushReplacement(
+      context,
+      MaterialPageRoute(builder: (context) => const LoginScreen()),
+    );
   }
 
   @override
@@ -60,5 +65,3 @@ class _SplashScreenState extends State<SplashScreen> {
     );
   }
 }
-
-

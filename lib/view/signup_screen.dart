@@ -62,7 +62,7 @@ class _SignupScreenState extends State<SignupScreen> {
     if (!hasError) {
       ScaffoldMessenger.of(context).showSnackBar(
         SnackBar(
-          content: const Text("Signup successful"),
+          content: const Text("Signup successful", style: TextStyle(fontFamily: 'Roboto')),
           backgroundColor: Colors.green,
           behavior: SnackBarBehavior.floating,
           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
@@ -77,7 +77,6 @@ class _SignupScreenState extends State<SignupScreen> {
       passwordController.clear();
       confirmPasswordController.clear();
 
-      // Navigate immediately
       Navigator.pushReplacement(
         context,
         MaterialPageRoute(builder: (context) => const LoginScreen()),
@@ -113,6 +112,7 @@ class _SignupScreenState extends State<SignupScreen> {
                       color: Colors.white,
                       fontSize: 26,
                       fontWeight: FontWeight.bold,
+                      fontFamily: 'Roboto',
                     ),
                   ),
                 ],
@@ -135,6 +135,7 @@ class _SignupScreenState extends State<SignupScreen> {
                             fontSize: 24,
                             fontWeight: FontWeight.bold,
                             color: Colors.black,
+                            fontFamily: 'Roboto',
                           ),
                         ),
                       ),
@@ -198,6 +199,7 @@ class _SignupScreenState extends State<SignupScreen> {
                               fontSize: 16,
                               color: Colors.white,
                               fontWeight: FontWeight.bold,
+                              fontFamily: 'Roboto',
                             ),
                           ),
                         ),
@@ -205,7 +207,7 @@ class _SignupScreenState extends State<SignupScreen> {
                       const SizedBox(height: 20),
                       OutlinedButton.icon(
                         onPressed: () {
-                          Navigator.push(
+                          Navigator.pushReplacement(
                             context,
                             MaterialPageRoute(builder: (context) => const LoginScreen()),
                           );
@@ -215,7 +217,10 @@ class _SignupScreenState extends State<SignupScreen> {
                           'assets/images/google_logo.png',
                           height: 20,
                         ),
-                        label: const Text("Sign up with Google", style: TextStyle(fontSize: 16)),
+                        label: const Text(
+                          "Sign up with Google",
+                          style: TextStyle(fontSize: 16, fontFamily: 'Roboto'),
+                        ),
                         style: OutlinedButton.styleFrom(
                           minimumSize: const Size(double.infinity, 52),
                           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(14)),
@@ -227,17 +232,25 @@ class _SignupScreenState extends State<SignupScreen> {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          const Text("Already have an account? "),
+                          const Text(
+                            "Already have an account? ",
+                            style: TextStyle(fontFamily: 'Roboto'),
+                          ),
                           GestureDetector(
                             onTap: () {
                               resetValidation();
-                              Navigator.pushReplacementNamed(context, '/login');
+                              Navigator.pushReplacement(
+                                context,
+                                MaterialPageRoute(builder: (context) => const LoginScreen()),
+                              );
                             },
                             child: const Text(
                               "Log in",
                               style: TextStyle(
                                 fontWeight: FontWeight.bold,
                                 color: Color(0xFF0A1B2E),
+                                fontFamily: 'Roboto',
+                                // ❌ Underline removed
                               ),
                             ),
                           ),
@@ -266,8 +279,10 @@ class _SignupScreenState extends State<SignupScreen> {
     return TextField(
       controller: controller,
       obscureText: obscureText,
+      style: const TextStyle(fontFamily: 'Roboto'),
       decoration: InputDecoration(
         hintText: hintText,
+        hintStyle: const TextStyle(fontFamily: 'Roboto'),
         prefixIcon: Icon(icon),
         suffixIcon: suffixIcon != null
             ? IconButton(icon: Icon(suffixIcon), onPressed: onSuffixTap)

@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
-import 'view/login_screen.dart'; 
-import 'view/signup_screen.dart'; 
-import 'view/splash_screen.dart'; 
-import 'view/dashboard_screen.dart'; 
+import 'bottom_navigation_screen/dashboard_screen.dart';
+import 'view/login_screen.dart';
+import 'view/signup_screen.dart';
+import 'view/splash_screen.dart';
+
 
 void main() {
-  runApp(KalamKartApp());
+  runApp(const KalamKartApp());
 }
 
 class KalamKartApp extends StatelessWidget {
@@ -17,7 +18,7 @@ class KalamKartApp extends StatelessWidget {
       title: 'KalamKart',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        fontFamily: 'Roboto',
+        fontFamily: 'Roboto', // ✅ Your downloaded Roboto font
         scaffoldBackgroundColor: const Color(0xFF0A1B2E),
         elevatedButtonTheme: ElevatedButtonThemeData(
           style: ElevatedButton.styleFrom(
@@ -28,12 +29,12 @@ class KalamKartApp extends StatelessWidget {
           ),
         ),
       ),
-      initialRoute: '/', // Splash screen is the initial route
+      initialRoute: '/', // Start from Splash
       routes: {
-        '/': (context) => const SplashScreen(),
+        '/': (context) => const SplashScreen(),    // Initial screen
         '/login': (context) => const LoginScreen(),
         '/signup': (context) => const SignupScreen(),
-        '/dashboard': (context) => const DashboardScreen(), // Navigate to dashboard after login/signup
+        '/dashboard': (context) => const DashboardScreen(),
       },
     );
   }

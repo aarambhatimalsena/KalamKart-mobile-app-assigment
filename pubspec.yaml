@@ -35,7 +35,9 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.8
   local_auth: ^2.1.6 
-
+  google_fonts: ^6.2.1
+  carousel_slider: ^5.0.0
+  
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -59,11 +61,11 @@ flutter:
   uses-material-design: true
 
   # To add assets to your application, add an assets section, like this:
-
   assets:
     - assets/images/KalamKart_logo.png
     - assets/images/google_logo.png
     - assets/images/banner.png
+    - assets/images/banner2.png
     - assets/images/products/gel_pens.jpeg
     - assets/images/products/spiral_notebook.jpeg
 
@@ -80,10 +82,19 @@ flutter:
   # "family" key with the font family name, and a "fonts" key with a
   # list giving the asset and other descriptors for the font. For
   # example:
-  # fonts:
-  #   - family: Schyler
-  #     fonts:
-  #       - asset: fonts/Schyler-Regular.ttf
+  fonts:
+    - family: Roboto_Condensed-Bold
+      fonts:
+        - asset: assets/fonts/Roboto_Condensed-Bold.ttf
+
+    - family: Roboto_Condensed-Italic
+      fonts:
+        - asset: assets/fonts/Roboto_Condensed-Italic.ttf
+
+    - family: Roboto_SemiCondensed-Regular
+      fonts:
+        - asset: assets/fonts/Roboto_SemiCondensed-Regular.ttf
+
   #       - asset: fonts/Schyler-Italic.ttf
   #         style: italic
   #   - family: Trajan Pro

@@ -83,12 +83,12 @@ class _LoginScreenState extends State<LoginScreen> {
   OutlineInputBorder buildPasswordBorder() {
     if (isPasswordValid == null) {
       return OutlineInputBorder(
-        borderRadius: BorderRadius.circular(12),
+        borderRadius: BorderRadius.circular(14),
         borderSide: BorderSide.none,
       );
     }
     return OutlineInputBorder(
-      borderRadius: BorderRadius.circular(12),
+      borderRadius: BorderRadius.circular(14),
       borderSide: BorderSide(
         color: isPasswordValid! ? Colors.green : Colors.red,
       ),
@@ -131,6 +131,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       color: Colors.white,
                       fontSize: 26,
                       fontWeight: FontWeight.bold,
+                      fontFamily: 'Roboto',
                     ),
                   ),
                 ],
@@ -150,28 +151,21 @@ class _LoginScreenState extends State<LoginScreen> {
                       TextField(
                         controller: emailController,
                         onTap: resetValidation,
-                        style: const TextStyle(fontSize: 16),
+                        style: const TextStyle(fontSize: 16, fontFamily: 'Roboto', color: Colors.black),
                         decoration: InputDecoration(
                           hintText: 'Email',
-                          hintStyle: const TextStyle(fontSize: 16),
                           prefixIcon: const Icon(Icons.email_outlined),
-                          filled: true,
-                          fillColor: Colors.grey[100],
-                          border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(12),
-                            borderSide: BorderSide.none,
-                          ),
                           errorText: emailError,
+                          // 💡 fillColor, border handled by theme
                         ),
                       ),
                       const SizedBox(height: 16),
                       TextField(
                         controller: passwordController,
                         obscureText: !isPasswordVisible,
-                        style: const TextStyle(fontSize: 16),
+                        style: const TextStyle(fontSize: 16, fontFamily: 'Roboto', color: Colors.black),
                         decoration: InputDecoration(
                           hintText: 'Password',
-                          hintStyle: const TextStyle(fontSize: 16),
                           prefixIcon: const Icon(Icons.lock_outline),
                           suffixIcon: Row(
                             mainAxisSize: MainAxisSize.min,
@@ -190,13 +184,10 @@ class _LoginScreenState extends State<LoginScreen> {
                               ),
                             ],
                           ),
-                          filled: true,
-                          fillColor: Colors.grey[100],
                           border: buildPasswordBorder(),
                           errorText: passwordError,
                         ),
                       ),
-
                       const SizedBox(height: 12),
                       Align(
                         alignment: Alignment.centerRight,
@@ -204,13 +195,15 @@ class _LoginScreenState extends State<LoginScreen> {
                           onPressed: () {
                             resetValidation();
                           },
-                          child: const Text('Forgot password?', style: TextStyle(fontSize: 14)),
+                          child: const Text(
+                            'Forgot password?',
+                            style: TextStyle(fontSize: 14, fontFamily: 'Roboto'),
+                          ),
                         ),
                       ),
                       ElevatedButton(
                         onPressed: onLoginPressed,
                         style: ElevatedButton.styleFrom(
-                          backgroundColor: const Color(0xFF0A1B2E),
                           minimumSize: const Size(double.infinity, 52),
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(12),
@@ -222,6 +215,7 @@ class _LoginScreenState extends State<LoginScreen> {
                             fontSize: 16,
                             color: Colors.white,
                             fontWeight: FontWeight.bold,
+                            fontFamily: 'Roboto',
                           ),
                         ),
                       ),
@@ -231,7 +225,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           Expanded(child: Divider()),
                           Padding(
                             padding: EdgeInsets.symmetric(horizontal: 8),
-                            child: Text("or", style: TextStyle(fontSize: 14)),
+                            child: Text("or", style: TextStyle(fontSize: 14, fontFamily: 'Roboto')),
                           ),
                           Expanded(child: Divider()),
                         ],
@@ -240,7 +234,10 @@ class _LoginScreenState extends State<LoginScreen> {
                       OutlinedButton.icon(
                         onPressed: () {},
                         icon: Image.asset('assets/images/google_logo.png', height: 22),
-                        label: const Text("Continue with Google", style: TextStyle(fontSize: 16)),
+                        label: const Text(
+                          "Continue with Google",
+                          style: TextStyle(fontSize: 16, fontFamily: 'Roboto'),
+                        ),
                         style: OutlinedButton.styleFrom(
                           minimumSize: const Size(double.infinity, 52),
                           shape: RoundedRectangleBorder(
@@ -262,7 +259,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 },
                 child: const Text(
                   "Don't have an account? Sign up",
-                  style: TextStyle(color: Colors.white, fontSize: 15),
+                  style: TextStyle(color: Colors.white, fontSize: 15, fontFamily: 'Roboto'),
                 ),
               ),
               const SizedBox(height: 10),
@@ -273,4 +270,3 @@ class _LoginScreenState extends State<LoginScreen> {
     );
   }
 }
-
