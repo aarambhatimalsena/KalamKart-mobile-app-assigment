@@ -27,5 +27,5 @@ Future<void> init() async {
 
   // ViewModels (Blocs)
   sl.registerFactory(() => LoginViewModel(loginUseCase: sl()));
-  sl.registerFactory(() => SignupViewModel(registerUseCase: sl()));
+
 }
