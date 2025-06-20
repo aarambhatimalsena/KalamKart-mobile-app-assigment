@@ -42,7 +42,12 @@ class KalamKartApp extends StatelessWidget {
           ),
         ),
         initialRoute: '/',
-        
+        routes: {
+          '/': (context) => const SplashScreen(),
+          '/login': (context) => const LoginScreen(),
+          '/signup': (context) => const SignupScreen(),
+          '/dashboard': (context) => const DashboardScreen(),
+        },
       ),
     );
   }
