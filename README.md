@@ -1,16 +1,32 @@
-# kalamkart_mobileapp
+# 📚 KalamKart — Stationery E-Commerce Mobile App
 
-A new Flutter project.
+KalamKart is a stationery-focused e-commerce mobile application built using **Flutter** with **Clean Architecture**. It provides a user-friendly platform for browsing, searching, and ordering stationery products directly from a smartphone.
 
-## Getting Started
+---
 
-This project is a starting point for a Flutter application.
+## 🚀 Features
 
-A few resources to get you started if this is your first Flutter project:
+- 📱 **Clean Architecture** (Presentation, Domain, Data layers)
+- 🛍️ View products by categories: Gel Pens, Highlighters, Notebooks, etc.
+- 🔎 Search products
+- ❤️ Add to favorites
+- 🛒 Add to cart and place orders
+- 📦 View order history
+- 🧠 Proximity sensor feature (experimental)
+-
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+---
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## 🛠️ Tech Stack
+
+| Layer          | Technologies              |
+|----------------|---------------------------|
+| **Frontend**   | Flutter + Dart            |
+| **Backend**    | Node.js + Express         |
+| **Database**   | MongoDB                   |
+| **State Mgmt** | BLoC                      |
+| **Others**     | Dio, Google Fonts, Sensors|
+
+---
+
+
