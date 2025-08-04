@@ -1,8 +1,13 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
+<uses-permission android:name="android.permission.USE_BIOMETRIC" />
+    <uses-permission android:name="android.permission.USE_FINGERPRINT" />
+        <uses-permission android:name="android.permission.BODY_SENSORS" />
+    <uses-permission android:name="android.permission.WRITE_SETTINGS"/>
     <application
         android:label="kalamkart_mobileapp"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
+           <uses-library android:name="android.hardware.sensor.proximity" android:required="false"/>
         <activity
             android:name=".MainActivity"
             android:exported="true"
